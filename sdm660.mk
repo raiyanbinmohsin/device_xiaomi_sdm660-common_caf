@@ -42,6 +42,7 @@ endif
 # Inherit proprietary files
 $(call inherit-product, vendor/xiaomi/sdm660-common/sdm660-common-vendor.mk)
 $(call inherit-product-if-exists, vendor/xiaomi/MiuiCamera/config.mk)
+$(call inherit-product-if-exists, vendor/GoogleCamera/camera.mk)
 
 # Common Tree Path
 COMMON_PATH := device/xiaomi/sdm660-common
@@ -279,7 +280,7 @@ PRODUCT_PACKAGES += \
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
-    android.hidl.base@1.0_vendor \
+    android.hidl.base@1.0.vendor \
     libhidltransport \
     libhidltransport.vendor \
     libhwbinder \
@@ -385,8 +386,7 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(COMMON_PATH)/overlay \
-    $(COMMON_PATH)/overlay-lineage
+    $(COMMON_PATH)/overlay
 
 # RRO configuration
 TARGET_USES_RRO := true
@@ -531,7 +531,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(COMMON_PATH) \
     hardware/google/interfaces \
-    hardware/google/pixel
+    hardware/google/pixel \
+    hardware/qcom/display \
+    hardware/qcom/media \
+    vendor/qcom/opensource/audio-hal/primary-hal
 
 # Shims
 PRODUCT_PACKAGES += \
