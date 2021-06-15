@@ -564,7 +564,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service.qti
+    android.hardware.thermal@2.0-service.mock
 
 # Thermal Conf
 PRODUCT_COPY_FILES += \
